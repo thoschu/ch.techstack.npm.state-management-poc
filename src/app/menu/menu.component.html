@@ -1,0 +1,41 @@
+<ng-container *ngFor="let link of routerLinks$ | async; index as i">
+  <div *ngIf="link === 'logout'; else isNotLoggedOut">
+    <a
+      *ngIf="isLoggedIn$ | async"
+       [attr.data-index]="i"
+       mat-list-item
+       [routerLink]="link"
+       (click)="menuService.logout()"
+    >
+      {{ i + 1 }}.
+      {{ link | uppercase }}
+    </a>
+  </div>
+  <ng-template #isNotLoggedOut>
+    <div>
+      <a
+        [attr.data-index]="i"
+        mat-list-item
+        [routerLink]="link"
+      >
+        {{ i + 1 }}.
+        {{ link | uppercase }}
+      </a>
+    </div>
+  </ng-template>
+</ng-container>
+<mat-card class="result">
+  <mat-card-content>
+    <section class="example-section">
+      <mat-slide-toggle
+        class="example-margin"
+        color="accent"
+        mat-list-item [formControl]="toggleControl"
+      >
+        Slide me!
+      </mat-slide-toggle>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+

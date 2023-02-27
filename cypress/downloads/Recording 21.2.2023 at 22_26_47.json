@@ -1,0 +1,320 @@
+{
+    "title": "Recording 21.2.2023 at 22:26:47",
+    "selectorAttribute": "data-test-id",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1920,
+            "height": 968,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:4200/home",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:4200/home",
+                    "title": "StateManagementPoc"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(2) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[2]/span/span"
+                ],
+                [
+                    "text/2. LOGIN"
+                ]
+            ],
+            "offsetY": -0.5,
+            "offsetX": 57
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ],
+                [
+                    "aria/Username"
+                ]
+            ],
+            "offsetY": 13,
+            "offsetX": 65
+        },
+        {
+            "type": "change",
+            "value": "tom",
+            "selectors": [
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ],
+                [
+                    "aria/Username"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "hallo2",
+            "selectors": [
+                [
+                    "#pasword"
+                ],
+                [
+                    "xpath///*[@id=\"pasword\"]"
+                ],
+                [
+                    "aria/Password"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#loginButton > span.mdc-button__label"
+                ],
+                [
+                    "xpath///*[@id=\"loginButton\"]/span[2]"
+                ]
+            ],
+            "offsetY": 10,
+            "offsetX": 32.546875
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(2) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[2]/span/span"
+                ],
+                [
+                    "text/2. LOGIN"
+                ]
+            ],
+            "offsetY": -0.5,
+            "offsetX": 52
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(1) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[1]/span/span"
+                ],
+                [
+                    "text/1. HOME"
+                ]
+            ],
+            "offsetY": 15.5,
+            "offsetX": 50
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(3) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[3]/span/span"
+                ],
+                [
+                    "text/3. DETAILS"
+                ]
+            ],
+            "offsetY": 8.5,
+            "offsetX": 49
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(1) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[1]/span/span"
+                ],
+                [
+                    "text/1. HOME"
+                ]
+            ],
+            "offsetY": 12.5,
+            "offsetX": 44
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(3) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[3]/span/span"
+                ],
+                [
+                    "text/3. DETAILS"
+                ]
+            ],
+            "offsetY": 13.5,
+            "offsetX": 38
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(1) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[1]/span/span"
+                ],
+                [
+                    "text/1. HOME"
+                ]
+            ],
+            "offsetY": 14.5,
+            "offsetX": 42
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(2) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[2]/span/span"
+                ],
+                [
+                    "text/2. LOGIN"
+                ]
+            ],
+            "offsetY": 6.5,
+            "offsetX": 41
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(3) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[3]/span/span"
+                ],
+                [
+                    "text/3. DETAILS"
+                ]
+            ],
+            "offsetY": 3.5,
+            "offsetX": 46
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(1) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[1]/span/span"
+                ],
+                [
+                    "text/1. HOME"
+                ]
+            ],
+            "offsetY": 15.5,
+            "offsetX": 53
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(2) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[2]/span/span"
+                ],
+                [
+                    "text/2. LOGIN"
+                ]
+            ],
+            "offsetY": 13.5,
+            "offsetX": 52
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > a:nth-child(3) > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/a[3]/span/span"
+                ],
+                [
+                    "text/3. DETAILS"
+                ]
+            ],
+            "offsetY": -0.5,
+            "offsetX": 52
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > app-root > app-navigation > mat-sidenav-container > mat-sidenav > div > mat-nav-list > app-menu > div > a > span > span"
+                ],
+                [
+                    "xpath//html/body/app-root/app-navigation/mat-sidenav-container/mat-sidenav/div/mat-nav-list/app-menu/div/a/span/span"
+                ],
+                [
+                    "text/4. LOGOUT"
+                ]
+            ],
+            "offsetY": 5.5,
+            "offsetX": 49
+        }
+    ]
+}

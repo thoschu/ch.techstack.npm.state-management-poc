@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <input id="username" type="text" autocomplete="on" required matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input id="password" type="password" autocomplete="on" required matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+      </p>
+      <span *ngIf="username.invalid && (username.dirty || username.touched)" class="error">
+        <span *ngIf="username.errors?.['required']">
+          Name is required.
+        </span>
+        <span *ngIf="username.errors?.['minlength']">
+          At least 4 characters.
+        </span>
+      </span>
+      <div class="button">
+        <button id="loginButton" type="submit" mat-button color="primary" [disabled]="!isValid">Login</button>
+        <button (click)="clearInput()" mat-button>Clear</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
