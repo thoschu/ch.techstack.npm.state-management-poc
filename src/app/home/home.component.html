@@ -1,14 +1,17 @@
 <div id="header">HEADER</div>
-<div id="nav">
-  <mat-slide-toggle (click)="doLayoutRow()">Slide me! 1</mat-slide-toggle>
+<div id="nav" *transloco="let t">
+  <mat-slide-toggle (click)="doLayoutRow()">{{ t('button', { value: 'Test' }) }}</mat-slide-toggle>
+  <mat-divider></mat-divider>
   <mat-divider></mat-divider>
   <mat-slide-toggle (click)="doLayoutColor()">Slide me! 2</mat-slide-toggle>
-  <mat-divider></mat-divider>
-  <mat-slide-toggle>Slide me! 3</mat-slide-toggle>
 </div>
 <div #content id="content">
-  <div #dragA cdkDrag>A</div>
-  <div #dragB cdkDrag>B</div>
+  <div #dragA cdkDrag>
+    <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+  </div>
+  <div #dragB cdkDrag>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+  </div>
 </div>
 <div id="footer">
   <apx-chart [series]="series" [chart]="chart" [title]="title"></apx-chart>

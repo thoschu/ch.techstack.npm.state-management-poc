@@ -36,6 +36,7 @@ import { HomeComponent } from './home/home.component';
 import { menuFeatureKey, menuMetaReducers, menuReducers, MenuState } from './menu/reducers';
 import * as fromNavigation from './navigation/reducers';
 import * as fromHome from './home/reducers';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import * as fromHome from './home/reducers';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     StoreRouterConnectingModule.forRoot(AppModule.STORE_ROUTER_CONNECTING_MODULE_FOR_ROOT_CONFIG),
+    TranslocoRootModule,
   ],
   bootstrap: [AppComponent],
   providers: [{
