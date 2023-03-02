@@ -1,15 +1,21 @@
 {
-  "/api/login": {
+  "/api/login/*": {
     "target": "http://localhost:3000/login/",
     "secure": false,
     "logLevel": "debug",
-    "changeOrigin": false
+    "changeOrigin": false,
+    "pathRewrite:": {
+      "^/api/login/*" : ""
+    }
   },
   "/api/menu": {
     "target": "http://localhost:3000/menu/",
     "secure": false,
     "logLevel": "debug",
-    "changeOrigin": false
+    "changeOrigin": false,
+    "pathRewrite:": {
+      "^/api/menu" : ""
+    }
   },
   "/api/details": {
     "target": "http://localhost:3000/details/",

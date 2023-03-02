@@ -24,7 +24,8 @@ import {
 } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { TypedAction } from '@ngrx/store/src/models';
-import { Observable, tap } from "rxjs";
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { Observable, tap } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppState, metaReducers, reducers } from './reducers';
@@ -59,13 +60,14 @@ import * as fromHome from './home/reducers';
     ReactiveFormsModule,
     CdkDrag,
     MatCardModule,
+    NgApexchartsModule,
     StoreModule.forRoot<AppState, Action>(reducers, AppModule.STORE_MODULE_FOR_ROOT_CONFIG),
     StoreModule.forFeature<MenuState, Action>(menuFeatureKey, menuReducers, {metaReducers: menuMetaReducers}),
     StoreModule.forFeature(fromNavigation.navigationFeatureKey, fromNavigation.reducers, {metaReducers: fromNavigation.metaReducers}),
     StoreModule.forFeature(fromHome.homeFeatureKey, fromHome.reducers, {metaReducers: fromHome.metaReducers}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
-    StoreRouterConnectingModule.forRoot(AppModule.STORE_ROUTER_CONNECTING_MODULE_FOR_ROOT_CONFIG)
+    StoreRouterConnectingModule.forRoot(AppModule.STORE_ROUTER_CONNECTING_MODULE_FOR_ROOT_CONFIG),
   ],
   bootstrap: [AppComponent],
   providers: [{

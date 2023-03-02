@@ -4,7 +4,8 @@
   "scripts": {
     "i": "npm install",
     "ng": "ng",
-    "start": "npm run server & ng serve",
+    "start": "ng serve",
+    "serve": "npm run server & npm start",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -14,7 +15,9 @@
     "cypress:run": "concurrently \"npm run server\" \"npm start\" \"cypress run\"",
     "cypress:chrome-recorder": "npx @cypress/chrome-recorder cypress/downloads/*.json -p -o=cypress/e2e/",
     "clean:node_modules": "rimraf node_modules",
-    "clean:.angular": "rimraf .angular"
+    "clean:.angular": "rimraf .angular",
+    "browserslist": "npx browserslist",
+    "clean": "npx rimraf node_modules"
   },
   "private": true,
   "dependencies": {
@@ -33,7 +36,14 @@
     "@ngrx/router-store": "^15.3.0",
     "@ngrx/store": "^15.3.0",
     "@ngrx/store-devtools": "^15.3.0",
+    "apexcharts": "^3.37.1",
+    "chart.js": "^3.6.0",
+    "jss": "^10.10.0",
+    "jss-preset-default": "^10.10.0",
     "letter-count": "^4.0.1",
+    "nanoid": "^4.0.1",
+    "ng-apexcharts": "^1.7.4",
+    "ng2-charts": "^4.1.1",
     "ramda": "^0.28.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

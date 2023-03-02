@@ -1,8 +1,15 @@
-<div id="header">Header</div>
-<div id="nav">Nav</div>
-<div id="content">
-  <div cdkDrag>A</div>
-  <div cdkDrag>B</div>
-  <div cdkDrag>C</div>
+<div id="header">HEADER</div>
+<div id="nav">
+  <mat-slide-toggle (click)="doLayoutRow()">Slide me! 1</mat-slide-toggle>
+  <mat-divider></mat-divider>
+  <mat-slide-toggle (click)="doLayoutColor()">Slide me! 2</mat-slide-toggle>
+  <mat-divider></mat-divider>
+  <mat-slide-toggle>Slide me! 3</mat-slide-toggle>
 </div>
-<div id="footer">Footer</div>
+<div #content id="content">
+  <div #dragA cdkDrag>A</div>
+  <div #dragB cdkDrag>B</div>
+</div>
+<div id="footer">
+  <apx-chart [series]="series" [chart]="chart" [title]="title"></apx-chart>
+</div>

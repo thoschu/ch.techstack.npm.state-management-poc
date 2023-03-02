@@ -24,15 +24,15 @@ $this-palette: mat.define-palette(mat.$cyan-palette);
     &#content {
       flex: 5 5 auto;
       display: flex;
-      flex-direction: row;
+      //flex-direction: column;
       // justify-content: center;
       // align-items: center;
 
       > {
         div {
-          // flex-grow: 1;
+          flex-grow: 1;
           margin: 2px;
-          border: wheat 1px solid;
+          // border: wheat 1px solid;
           padding: 20px;
         }
       }

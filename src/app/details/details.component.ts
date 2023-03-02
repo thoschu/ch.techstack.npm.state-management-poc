@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
-import { Observable } from 'rxjs';
 import { DetailsService } from './details.service';
+import { ChartConfiguration } from "chart.js";
+import { NgChartsModule } from "ng2-charts";
+import { Observable } from 'rxjs';
 
 export interface PeriodicElement {
   name: string;
@@ -18,7 +20,8 @@ export type DetailsPayload = Record<any, any>;
   standalone: true,
   imports: [
     CommonModule,
-    MatTableModule
+    MatTableModule,
+    NgChartsModule,
   ],
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
@@ -28,7 +31,7 @@ export class DetailsComponent implements OnInit {
   public displayedColumns$!: Observable<string[]>;
   public periodicElements$!: Observable<PeriodicElement[]>;
 
-  constructor(private readonly detailsService: DetailsService) {
+  constructor(protected readonly detailsService: DetailsService) {
     const periodicElements = this.detailsService.getPeriodicElements$();
     const displayedColumns = this.detailsService.getDisplayedColumns$();
   }
