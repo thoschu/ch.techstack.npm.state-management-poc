@@ -6,7 +6,7 @@
   width: 200px;
 }
 
-.sidenav .mat-toolbar {
+.sidenav mat-toolbar {
   background: inherit;
 }
 
@@ -14,4 +14,11 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+span {
+  &.title {
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+  }
 }

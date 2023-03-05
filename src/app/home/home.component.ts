@@ -6,6 +6,7 @@ import jss, { CreateGenerateId, InsertionPoint, Rule, StyleSheet } from 'jss';
 import preset from 'jss-preset-default';
 import { nanoid } from 'nanoid';
 import { ApexChart, ApexAxisChartSeries, ApexTitleSubtitle } from 'ng-apexcharts';
+import html2canvas from 'html2canvas';
 
 type StyleKeys = 'button' | 'container' | 'content';
 type ExtendedRule = Record<'prop', (prop: string) => string>;
@@ -35,7 +36,8 @@ export class HomeComponent implements AfterViewInit {
 
   @ViewChild('dragA') private readonly dragOne!: ElementRef<HTMLDivElement>;
   @ViewChild('dragB') private readonly dragTwo!: ElementRef<HTMLDivElement>;
-  @ViewChild('content') private readonly content!: ElementRef<InsertionPoint>;
+  @ViewChild('content') private readonly content!: ElementRef<InsertionPoint & HTMLDivElement>;
+  @ViewChild('html2canvas') private readonly html2canvas!: ElementRef<HTMLDivElement>;
 
   // https://github.com/cssinjs/examples/blob/gh-pages/inline/app.js
   constructor(
@@ -110,6 +112,17 @@ export class HomeComponent implements AfterViewInit {
       container: {
         background: 'blue !important'
       }
+    });
+  }
+
+  public open(): void {
+    html2canvas(this.content.nativeElement, {
+      backgroundColor: null,
+    }).then((canvas: HTMLCanvasElement) => {
+        this.html2canvas.nativeElement.appendChild(canvas);
+
+        const base64image = canvas.toDataURL('image/png');
+        // window.open(base64image , '_blank');
     });
   }
 

@@ -1,11 +1,54 @@
-<div id="header">HEADER</div>
+<div id="header">
+  <apx-chart [series]="series" [chart]="chart" [title]="title"></apx-chart>
+  <mat-divider></mat-divider>
+  <div>
+    <p id="line-clamp">
+      Lorem ipsum dolor sit amet,
+      consetetur sadipscing elitr,
+      sed diam nonumy eirmod tempor invidunt ut labore
+      et dolore magna aliquyam erat, sed diam voluptua.
+      At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren,
+      no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      Lorem ipsum dolor sit amet,
+      consetetur sadipscing elitr,
+      sed diam nonumy eirmod tempor invidunt ut labore et
+      dolore magna aliquyam erat, sed diam voluptua.
+      At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren, no sea takimata sanctus
+      est Lorem ipsum dolor sit amet.
+    </p>
+
+    <p id="column-count">
+      Lorem ipsum dolor sit amet,
+      consetetur sadipscing elitr,
+      sed diam nonumy eirmod tempor invidunt ut labore
+      et dolore magna aliquyam erat, sed diam voluptua.
+      At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren,
+      no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      Lorem ipsum dolor sit amet,
+      consetetur sadipscing elitr,
+      sed diam nonumy eirmod tempor invidunt ut labore et
+      dolore magna aliquyam erat, sed diam voluptua.
+      At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren, no sea takimata sanctus
+      est Lorem ipsum dolor sit amet.
+    </p>
+  </div>
+<!--  <label for="name">First name:</label>-->
+<!--  <input type="text" id="name" name="name" placeholder="Placeholder">-->
+</div>
 <div id="nav" *transloco="let t">
   <mat-slide-toggle (click)="doLayoutRow()">{{ t('button', { value: 'Test' }) }}</mat-slide-toggle>
   <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
   <mat-slide-toggle (click)="doLayoutColor()">Slide me! 2</mat-slide-toggle>
+  <mat-divider></mat-divider>
+  <button mat-icon-button aria-label="Example icon button with a open in new tab icon" (click)="open()">
+    <mat-icon>open_in_new</mat-icon>
+  </button>
 </div>
-<div #content id="content">
+<div id="content" #content>
   <div #dragA cdkDrag>
     <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
   </div>
@@ -13,6 +56,4 @@
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
   </div>
 </div>
-<div id="footer">
-  <apx-chart [series]="series" [chart]="chart" [title]="title"></apx-chart>
-</div>
+<div id="footer" #html2canvas></div>
