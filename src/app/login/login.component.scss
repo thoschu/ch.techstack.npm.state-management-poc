@@ -23,3 +23,11 @@ mat-card-content {
   display: flex;
   justify-content: flex-end;
 }
+
+::ng-deep .login-snackbar {
+  border-radius: 5px;
+
+  * {
+    font-size: 24px;
+  }
+}

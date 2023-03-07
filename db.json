@@ -2,13 +2,15 @@
   "login": [
     {
       "id": 1,
-      "name": "Erce",
-      "info": "Berlin"
+      "name": "Thomas",
+      "info": "Bielefeld",
+      "nonce": "0325"
     },
     {
       "id": 2,
       "name": "Tom S.",
-      "info": "Hamburg"
+      "info": "Hamburg",
+      "nonce": "0815"
     }
   ],
   "menu": {

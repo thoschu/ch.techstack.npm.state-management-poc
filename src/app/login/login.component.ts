@@ -58,15 +58,17 @@ export class LoginComponent {
       const login$: Observable<User> | null = this.loginService.login(username, password);
 
       if (login$ === null) {
-        this.openSnackBar();
+        this.openSnackBar('❌ Error');
       } else {
         login$.pipe(
-          tap(console.log),
+          tap(console.info),
           tap(async (user: User) => {
             // this.store.dispatch({ type: 'Login Action', payload: { user } });
-            const login: { user: User } & TypedAction<'[Login Page] User Login'> = loginAction({user});
+            const login: { user: User } & TypedAction<'[Login Page] User Login'> = loginAction({ user });
 
             this.store.dispatch(login);
+
+            this.openSnackBar('✅ Success');
 
             await this.router.navigateByUrl('details');
           })
@@ -83,11 +85,12 @@ export class LoginComponent {
     this.form.setValue({ username: '', password: '' });
   }
 
-  private openSnackBar(): void {
-    this.snackBar.open('❌ Error', '✕', {
+  private openSnackBar(message: string): void {
+    this.snackBar.open(message, '✕', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      duration: 5000
+      duration: 5000,
+      panelClass: ['success-snackbar']
     });
   }
 }

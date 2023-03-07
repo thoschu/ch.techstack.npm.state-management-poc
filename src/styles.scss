@@ -4,6 +4,10 @@
 
 @include mat.core();
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $this-app-warn: mat.define-palette(mat.$red-palette);
 
 $this-typography: mat.define-typography-config(
