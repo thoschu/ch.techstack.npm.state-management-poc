@@ -70,7 +70,11 @@ export class LoginComponent {
 
             await this.router.navigateByUrl('details');
           })
-        ).subscribe(noop, (error: Error) => console.error(error));
+        ).subscribe({
+          next: noop,
+          error: (error: Error) => console.error(error),
+          complete: noop
+        });
       }
     }
   }
