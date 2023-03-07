@@ -21,7 +21,7 @@ export class LoginEffects implements AppLocalStorage.LocalStorage {
   private readonly logoutEffect$: Observable<TypedAction<'[Menu Left] User Logout'>> & CreateEffectMetadata;
   private readonly loginEffect$: Observable<{user: User} & TypedAction<'[Login Page] User Login'>> & CreateEffectMetadata;
 
-  constructor(private readonly actions$: Actions<Action>, private readonly router: Router) {
+  constructor(private readonly actions$: Actions, private readonly router: Router) {
     /*
     const loginEffect$: Observable<{user: User} & TypedAction<'[Login Page] User Login'>> = this.actions$
     .pipe(

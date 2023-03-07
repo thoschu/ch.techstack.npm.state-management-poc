@@ -3,8 +3,7 @@ import { isNil, not, prop } from 'ramda';
 import { User } from '../login/login.service';
 import { LoginState } from '../login/reducers';
 
-export const selectLoginStateFeature =
-  createFeatureSelector<LoginState>('login');
+export const selectLoginStateFeature = createFeatureSelector<LoginState>('login');
 
 export const isLoggedInSelector = createSelector<object, LoginState, boolean>(
   // (state: AppState) => state['login'],

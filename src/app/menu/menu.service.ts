@@ -58,8 +58,8 @@ export class MenuService {
   }
 
   public logout(): void {
-    const logout: TypedAction<'[Menu Left] User Logout'> = logoutAction();
+    const newLogoutAction: TypedAction<'[Menu Left] User Logout'> = logoutAction();
 
-    this.store.dispatch(logout);
+    this.store.dispatch(newLogoutAction);
   }
 }
