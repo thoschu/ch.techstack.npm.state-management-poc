@@ -24,8 +24,11 @@ import {
 } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { TypedAction } from '@ngrx/store/src/models';
+import { initializeApp, FirebaseApp } from "firebase/app";
+import { Analytics, getAnalytics } from "firebase/analytics";
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { Observable, tap } from 'rxjs';
+import { TranslocoRootModule } from './transloco-root.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppState, metaReducers, reducers } from './reducers';
@@ -36,7 +39,6 @@ import { HomeComponent } from './home/home.component';
 import { menuFeatureKey, menuMetaReducers, menuReducers, MenuState } from './menu/reducers';
 import * as fromNavigation from './navigation/reducers';
 import * as fromHome from './home/reducers';
-import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -94,11 +96,20 @@ export class AppModule {
     routerState: RouterState.Minimal
   };
 
-  constructor() {}
+  private static FIREBASE_CONFIG: Record<string, string> = {
+
+  };
+
+  constructor() {
+    const app: FirebaseApp = initializeApp(AppModule.FIREBASE_CONFIG);
+    const analytics: Analytics = getAnalytics(app);
+    console.log(analytics);
+  }
 
   private static initializeAppFactory(httpClient: HttpClient, store: Store<AppState>): () => Observable<MenuState> {
     return () => httpClient.get<MenuState>('api/menu')
       .pipe(
+        tap(console.log),
         tap((payload: MenuState) => {
           const action: MenuState & TypedAction<'[Init] Menu RouterLinks'> =
             initMenuAction(payload);

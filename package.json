@@ -17,7 +17,10 @@
     "clean:node_modules": "rimraf node_modules",
     "clean:.angular": "rimraf .angular",
     "browserslist": "npx browserslist",
-    "clean": "npx rimraf node_modules"
+    "clean": "npx rimraf node_modules",
+    "firebase:login": "firebase login",
+    "firebase:init": "firebase init",
+    "firebase:deploy": "firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +42,7 @@
     "@ngrx/store-devtools": "^15.3.0",
     "apexcharts": "^3.37.1",
     "chart.js": "^3.6.0",
+    "firebase": "^9.17.2",
     "html2canvas": "^1.4.1",
     "jss": "^10.10.0",
     "jss-preset-default": "^10.10.0",
@@ -48,6 +52,7 @@
     "ng2-charts": "^4.1.1",
     "ramda": "^0.28.0",
     "rxjs": "~7.8.0",
+    "tesseract.js": "^4.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
@@ -61,6 +66,7 @@
     "@types/ramda": "^0.28.23",
     "concurrently": "^7.6.0",
     "cypress": "latest",
+    "firebase-tools": "^11.24.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
