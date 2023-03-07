@@ -1,0 +1,5 @@
+{
+  "hello": "transloco en",
+  "dynamic": "transloco {{value}}",
+  "button": "Please click {{value}}"
+}

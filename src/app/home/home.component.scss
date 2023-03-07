@@ -14,7 +14,37 @@ $this-palette: mat.define-palette(mat.$cyan-palette);
     margin: 10px;
 
     &#header {
-      flex: 1 1 auto;
+      flex: 1 1 300px;
+
+      input {
+        &:placeholder-shown {
+          border: 2px solid #d9047d;
+        }
+      }
+
+      div {
+        margin-top: 10px;
+
+        p#line-clamp {
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        p#column-count {
+          column-count: 3;
+        }
+
+        .custom-table {
+          thead {
+            tr {
+              position: sticky;
+              top: 0;
+            }
+          }
+        }
+      }
     }
 
     &#nav {
@@ -24,22 +54,22 @@ $this-palette: mat.define-palette(mat.$cyan-palette);
     &#content {
       flex: 5 5 auto;
       display: flex;
-      //flex-direction: column;
-      // justify-content: center;
-      // align-items: center;
 
       > {
         div {
           flex-grow: 1;
           margin: 2px;
-          // border: wheat 1px solid;
           padding: 20px;
         }
       }
     }
 
     &#footer {
-      flex: 1 1 auto;
+      flex: 1 1 25em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
     }
   }
 }
