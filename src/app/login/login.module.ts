@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from '@ngrx/store';
 import { LoginRoutingModule } from './login-routing.module';
@@ -23,6 +24,7 @@ import * as fromLogin from './reducers';
     ReactiveFormsModule,
     MatButtonModule,
     LoginRoutingModule,
+    MatSnackBarModule,
     StoreModule.forFeature(
       fromLogin.loginFeatureKey,
       fromLogin.reducers,

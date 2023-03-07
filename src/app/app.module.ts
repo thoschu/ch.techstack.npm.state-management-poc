@@ -96,14 +96,11 @@ export class AppModule {
     routerState: RouterState.Minimal
   };
 
-  private static FIREBASE_CONFIG: Record<string, string> = {
-
-  };
+  private static FIREBASE_CONFIG: Record<string, string> = {};
 
   constructor() {
-    const app: FirebaseApp = initializeApp(AppModule.FIREBASE_CONFIG);
-    const analytics: Analytics = getAnalytics(app);
-    console.log(analytics);
+    // const app: FirebaseApp = initializeApp(AppModule.FIREBASE_CONFIG);
+    // const analytics: Analytics = getAnalytics(app);
   }
 
   private static initializeAppFactory(httpClient: HttpClient, store: Store<AppState>): () => Observable<MenuState> {

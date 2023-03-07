@@ -27,6 +27,4 @@ export class LoginService {
 
     return null;
   }
-
-
 }
