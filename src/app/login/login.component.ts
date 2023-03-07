@@ -21,14 +21,13 @@ import { AppState } from '../reducers';
 export class LoginComponent {
   private readonly horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   private readonly verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-
   public isValid: boolean = false;
   public form: FormGroup = new FormGroup({
-    username: new FormControl('', [
+    username: new FormControl<string>('', [
       Validators.required,
       Validators.minLength(3)
     ]),
-    password: new FormControl('', [
+    password: new FormControl<string>('', [
       Validators.required,
       Validators.minLength(4)
     ])
