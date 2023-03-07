@@ -72,7 +72,7 @@ export class LoginComponent {
           })
         ).subscribe({
           next: noop,
-          error: (error: Error) => console.error(error),
+          error: console.error,
           complete: noop
         });
       }
