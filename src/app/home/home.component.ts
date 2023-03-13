@@ -68,8 +68,6 @@ export class HomeComponent implements AfterViewInit, OnInit {
     ]).subscribe((breakpointState: BreakpointState) => {
       const { breakpoints }: { breakpoints: Record<string, boolean>; } = breakpointState;
 
-      console.log('###############');
-
       if(breakpoints[Breakpoints.TabletPortrait]) {
         this.cols = 3;
         this.rowHeight = '1:1';
@@ -88,10 +86,6 @@ export class HomeComponent implements AfterViewInit, OnInit {
         this.rowHeight = '1:1';
         this.handsetPortrait = false;
       }
-
-      console.log(this.cols);
-      console.log(this.rowHeight);
-      console.log(this.handsetPortrait);
     });
   }
 
