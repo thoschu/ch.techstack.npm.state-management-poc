@@ -49,6 +49,10 @@ $this-palette: mat.define-palette(mat.$cyan-palette);
 
     &#nav {
       flex: .5 .5 auto;
+
+      .handset-portrait {
+        color: red;
+      }
     }
 
     &#content {

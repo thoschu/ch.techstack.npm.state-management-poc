@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -7,6 +7,7 @@ import preset from 'jss-preset-default';
 import { nanoid } from 'nanoid';
 import { ApexChart, ApexAxisChartSeries, ApexTitleSubtitle } from 'ng-apexcharts';
 import html2canvas from 'html2canvas';
+import {BreakpointObserver, Breakpoints, BreakpointState} from "@angular/cdk/layout";
 
 type StyleKeys = 'button' | 'container' | 'content';
 type ExtendedRule = Record<'prop', (prop: string) => string>;
@@ -16,7 +17,7 @@ type ExtendedRule = Record<'prop', (prop: string) => string>;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnInit {
   private static readonly THUMBUP_ICON: string =
     `<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px">
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -33,6 +34,10 @@ export class HomeComponent implements AfterViewInit {
     data: [30,40,35,50,49,60,70,91,125]
   }];
   protected readonly title: ApexTitleSubtitle = { text: 'Test' };
+  protected readonly gridListItems: number[] = [1, 2, 3, 4, 5, 6];
+  protected cols: number = 1;
+  protected rowHeight: string = 'fill';
+  protected handsetPortrait: boolean = false;
 
   @ViewChild('dragA') private readonly dragOne!: ElementRef<HTMLDivElement>;
   @ViewChild('dragB') private readonly dragTwo!: ElementRef<HTMLDivElement>;
@@ -41,6 +46,7 @@ export class HomeComponent implements AfterViewInit {
 
   // https://github.com/cssinjs/examples/blob/gh-pages/inline/app.js
   constructor(
+    private readonly breakpointObserver: BreakpointObserver,
     private readonly renderer2: Renderer2,
     private readonly httpClient: HttpClient,
     readonly iconRegistry: MatIconRegistry,
@@ -50,6 +56,43 @@ export class HomeComponent implements AfterViewInit {
     this.cssNanoId = nanoid(7);
 
     iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(HomeComponent.THUMBUP_ICON));
+  }
+
+  ngOnInit(): void {
+    // this.breakpointObserver.observe("(max-width: 959px)").subscribe(console.log);
+    this.breakpointObserver.observe([
+      Breakpoints.TabletPortrait,
+      Breakpoints.TabletLandscape,
+      Breakpoints.HandsetPortrait,
+      Breakpoints.HandsetLandscape,
+    ]).subscribe((breakpointState: BreakpointState) => {
+      const { breakpoints }: { breakpoints: Record<string, boolean>; } = breakpointState;
+
+      console.log('###############');
+
+      if(breakpoints[Breakpoints.TabletPortrait]) {
+        this.cols = 3;
+        this.rowHeight = '1:1';
+      } else if(breakpoints[Breakpoints.TabletLandscape]) {
+        this.cols = 6;
+        this.rowHeight = '1:2';
+      } else if(breakpoints[Breakpoints.HandsetPortrait]) {
+        this.cols = 2;
+        this.rowHeight = '2:1';
+        this.handsetPortrait = true;
+      } else if(breakpoints[Breakpoints.HandsetLandscape]) {
+        this.cols = 3;
+        this.rowHeight = '2:1';
+      } else {
+        this.cols = 3;
+        this.rowHeight = '1:1';
+        this.handsetPortrait = false;
+      }
+
+      console.log(this.cols);
+      console.log(this.rowHeight);
+      console.log(this.handsetPortrait);
+    });
   }
 
   ngAfterViewInit(): void {

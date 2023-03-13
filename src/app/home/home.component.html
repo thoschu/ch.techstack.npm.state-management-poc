@@ -46,6 +46,18 @@
   <button mat-icon-button aria-label="Example icon button with a open in new tab icon" (click)="open()">
     <mat-icon>open_in_new</mat-icon>
   </button>
+  <mat-divider></mat-divider>
+  <mat-grid-list [cols]="cols" [rowHeight]="rowHeight" [ngClass]="{ 'handset-portrait': handsetPortrait }">
+    <mat-grid-tile *ngFor="let card of gridListItems">
+      <mat-card>
+        <mat-card-title>{{ card }}</mat-card-title>
+        <mat-card-content>
+          {{ card }}
+        </mat-card-content>
+        <mat-card-footer>{{ card | homeExponential: 2 }}</mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
 <div id="content" #content>
   <div #dragA cdkDrag>

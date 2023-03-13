@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -39,13 +40,15 @@ import { HomeComponent } from './home/home.component';
 import { menuFeatureKey, menuMetaReducers, menuReducers, MenuState } from './menu/reducers';
 import * as fromNavigation from './navigation/reducers';
 import * as fromHome from './home/reducers';
+import { HomeExponentialPipe } from "./home/home.exponential.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     NavigationComponent,
-    HomeComponent
+    HomeComponent,
+    HomeExponentialPipe
   ],
   imports: [
     AppRoutingModule.forRoot(),
@@ -58,6 +61,7 @@ import * as fromHome from './home/reducers';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatGridListModule,
     HttpClientModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
@@ -66,12 +70,12 @@ import * as fromHome from './home/reducers';
     NgApexchartsModule,
     TranslocoRootModule,
     StoreModule.forRoot<AppState, Action>(reducers, AppModule.STORE_MODULE_FOR_ROOT_CONFIG),
-    StoreModule.forFeature<MenuState, Action>(menuFeatureKey, menuReducers, { metaReducers: menuMetaReducers }),
-    StoreModule.forFeature(fromNavigation.navigationFeatureKey, fromNavigation.reducers, { metaReducers: fromNavigation.metaReducers }),
-    StoreModule.forFeature(fromHome.homeFeatureKey, fromHome.reducers, { metaReducers: fromHome.metaReducers }),
+    StoreModule.forFeature<MenuState, Action>(menuFeatureKey, menuReducers, {metaReducers: menuMetaReducers}),
+    StoreModule.forFeature(fromNavigation.navigationFeatureKey, fromNavigation.reducers, {metaReducers: fromNavigation.metaReducers}),
+    StoreModule.forFeature(fromHome.homeFeatureKey, fromHome.reducers, {metaReducers: fromHome.metaReducers}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    StoreRouterConnectingModule.forRoot(AppModule.STORE_ROUTER_CONNECTING_MODULE_FOR_ROOT_CONFIG),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
+    StoreRouterConnectingModule.forRoot(AppModule.STORE_ROUTER_CONNECTING_MODULE_FOR_ROOT_CONFIG)
   ],
   bootstrap: [AppComponent],
   providers: [{
