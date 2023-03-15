@@ -78,12 +78,14 @@ import { HomeExponentialPipe } from "./home/home.exponential.pipe";
     StoreRouterConnectingModule.forRoot(AppModule.STORE_ROUTER_CONNECTING_MODULE_FOR_ROOT_CONFIG)
   ],
   bootstrap: [AppComponent],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useFactory: AppModule.initializeAppFactory,
-    deps: [ HttpClient, Store ],
-    multi: true
-  }]
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: AppModule.initializeAppFactory,
+      deps: [HttpClient, Store],
+      multi: true
+    }
+  ]
 })
 export class AppModule {
   private static readonly STORE_MODULE_FOR_ROOT_CONFIG: RootStoreConfig<AppState> = {
@@ -112,8 +114,7 @@ export class AppModule {
       .pipe(
         tap(console.log),
         tap((payload: MenuState) => {
-          const action: MenuState & TypedAction<'[Init] Menu RouterLinks'> =
-            initMenuAction(payload);
+          const action: MenuState & TypedAction<'[Init] Menu RouterLinks'> = initMenuAction(payload);
 
           store.dispatch(action)
         })

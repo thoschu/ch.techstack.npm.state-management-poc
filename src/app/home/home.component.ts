@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -7,7 +8,6 @@ import preset from 'jss-preset-default';
 import { nanoid } from 'nanoid';
 import { ApexChart, ApexAxisChartSeries, ApexTitleSubtitle } from 'ng-apexcharts';
 import html2canvas from 'html2canvas';
-import {BreakpointObserver, Breakpoints, BreakpointState} from "@angular/cdk/layout";
 
 type StyleKeys = 'button' | 'container' | 'content';
 type ExtendedRule = Record<'prop', (prop: string) => string>;
@@ -87,6 +87,8 @@ export class HomeComponent implements AfterViewInit, OnInit {
         this.handsetPortrait = false;
       }
     });
+
+    console.log('#############');
   }
 
   ngAfterViewInit(): void {
