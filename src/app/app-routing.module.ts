@@ -1,9 +1,9 @@
 import { importProvidersFrom, ModuleWithProviders, NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes, NoPreloading, ExtraOptions } from '@angular/router';
-import { StoreModule } from "@ngrx/store";
-import { HomeComponent } from "./home/home.component";
-import { detailsFeatureKey, reducers, metaReducers } from "./details/reducers";
-import { DetailsGuard } from "./details/details.guard";
+import { StoreModule } from '@ngrx/store';
+import { HomeComponent } from './home/home.component';
+import { detailsFeatureKey, reducers, metaReducers } from './details/reducers';
+import { DetailsGuard } from './details/details.guard';
 
 @NgModule({
   imports: [

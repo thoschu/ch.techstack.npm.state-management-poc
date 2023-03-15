@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { ChartConfiguration } from 'chart.js';
+import {catchError, Observable, retry, throwError} from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PeriodicElement } from './details.component';
-import {ChartConfiguration} from "chart.js";
 
 export type Details = Record<'periodicElements', PeriodicElement[]> & Record<'displayedColumns', string[]>;
 
@@ -20,11 +20,19 @@ export class DetailsService {
   }
 
   public getDisplayedColumns$(): Observable<string[]> {
-    return this.details$.pipe(map((details: Details) => details.displayedColumns));
+    return this.details$.pipe(
+      retry(1),
+      catchError(this.handleError),
+      map((details: Details) => details.displayedColumns)
+    );
   }
 
   public getPeriodicElements$(): Observable<PeriodicElement[]> {
-    return this.details$.pipe(map((details: Details) => details.periodicElements));
+    return this.details$.pipe(
+      retry<Record<'periodicElements', PeriodicElement[]> & Record<'displayedColumns', string[]>>(1),
+      catchError<Record<'periodicElements', PeriodicElement[]> & Record<'displayedColumns', string[]>, Observable<never>>(this.handleError),
+      map<Details, PeriodicElement[]>((details: Details) => details.periodicElements)
+    );
   }
 
   public barChartData: ChartConfiguration<'bar'>['data'] = {
@@ -39,4 +47,19 @@ export class DetailsService {
     responsive: true,
     layout: {padding: 20}
   };
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage: string;
+
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+
+    return throwError(() => errorMessage);
+  }
 }
