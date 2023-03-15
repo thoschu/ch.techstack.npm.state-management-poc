@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { detailsFeatureKey, reducers, metaReducers } from './details/reducers';
 import { DetailsGuard } from './details/details.guard';
 
-@Injectable()
 export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   private handlers: Record<string, RootHandler> = {};
 
@@ -151,9 +150,9 @@ export class AppRoutingModule {
   }, {
     path: 'home',
     component: HomeComponent,
-    data: {
-      shouldDetach: true
-    }
+    // data: {
+    //   shouldDetach: true
+    // }
   }, {
     path: '',
     redirectTo: '/home',
